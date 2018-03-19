@@ -16,8 +16,10 @@ int main()
     }
     printf("%2c|%2c|%2c\n%2c|%2c|%2c\n%2c|%2c|%2c\n",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8]);
 
-    for (c = 0; c < 9 && !winner (); c++)
+    for (c = 0; c < 9 && !winner (); c++) {
+        system ("cls");
         input ();
+    }
 
     winner ();
     return 0;
@@ -25,6 +27,12 @@ int main()
 }
 void grid(int i)
 {
+    if (a[i] != ' ') {
+        c--;
+        printf ("ERROR! Occupied. \n");
+        return;
+    }
+
     if(c%2==0)
     {
         a[i]='O';
@@ -34,7 +42,6 @@ void grid(int i)
         a[i]='X';
     }
 
-    system ("cls");
     printf("%2c|%2c|%2c\n%2c|%2c|%2c\n%2c|%2c|%2c\n",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8]);
 
 }
