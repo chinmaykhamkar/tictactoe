@@ -1,53 +1,57 @@
 #include<stdio.h>
 #include<conio.h>
+#include<stdlib.h>
+
 void grid (int);
 void winner ();
 void input ();
 char a[9];
 int c=0;
 int main()
-{int i;
-    for (int k=0;k<9;k++){
+{
+    int i;
+    for (int k=0; k<9; k++)
+    {
         a[k]=' ';
     }
-   printf("%2c|%2c|%2c\n%2c|%2c|%2c\n%2c|%2c|%2c\n",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8]);
-    input ();
+    printf("%2c|%2c|%2c\n%2c|%2c|%2c\n%2c|%2c|%2c\n",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8]);
+
+    for (c = 0; c < 9; c++)
+        input ();
+
     winner ();
     return 0;
 
-
 }
 void grid(int i)
-{  if(c%2==0){
-    a[i]='O';
-  }
-  else
-  {
-      a[i]='X';
-  }
+{
+    if(c%2==0)
+    {
+        a[i]='O';
+    }
+    else
+    {
+        a[i]='X';
+    }
 
- // include stdlib.h and use system ('cls')
+    system ("cls");
     printf("%2c|%2c|%2c\n%2c|%2c|%2c\n%2c|%2c|%2c\n",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8]);
     winner();
-    input ();
-
 }
 void input()
 {
     int n;
     printf("enter the cell no.\n");
     scanf("%d",&n);
-    c++;
-
     grid (n-1);
 
 }
 void winner()
 {
     //if (c%2==0)
-   // {
-        printf("checking winner\n");
-        if (((a[0]==a[1])&&(a[1]==a[2])&&(a[2]=='X'))||
+    // {
+    printf("checking winner\n");
+    if (((a[0]==a[1])&&(a[1]==a[2])&&(a[2]=='X'))||
             ((a[4]==a[3])&&(a[4]==a[5])&&(a[3]=='X'))||
             ((a[6]==a[7])&&(a[7]==a[8])&&(a[8]=='X'))||
             ((a[0]==a[3])&&(a[3]==a[6])&&(a[6]=='X'))||
@@ -57,12 +61,12 @@ void winner()
             ((a[2]==a[4])&&(a[4]==a[6])&&(a[6]=='X')))
 
     {
-                printf("player 1 wins\n");
+        printf("player 1 wins\n");
     }
 
     //else if (c%2!=0)
 
-         else if(((a[0]==a[1])&&(a[1]==a[2])&&(a[2]=='O'))||
+    else if(((a[0]==a[1])&&(a[1]==a[2])&&(a[2]=='O'))||
             ((a[4]==a[3])&&(a[4]==a[5])&&(a[3]=='O'))||
             ((a[6]==a[7])&&(a[7]==a[8])&&(a[8]=='O'))||
             ((a[0]==a[3])&&(a[3]==a[6])&&(a[6]=='O'))||
@@ -70,11 +74,11 @@ void winner()
             ((a[2]==a[5])&&(a[5]==a[8])&&(a[8]=='O'))||
             ((a[0]==a[4])&&(a[4]==a[8])&&(a[8]=='O'))||
             ((a[2]==a[4])&&(a[4]==a[6])&&(a[6]=='O')))
-       {
+    {
 
         printf("player 2 wins\n");
-       }
-       else if (c==9)
+    }
+    else if (c==9)
         printf("draw\n");
 
 
