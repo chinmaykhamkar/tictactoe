@@ -3,7 +3,7 @@
 #include<stdlib.h>
 
 void grid (int);
-void winner ();
+int winner ();
 void input ();
 char a[9];
 int c=0;
@@ -16,7 +16,7 @@ int main()
     }
     printf("%2c|%2c|%2c\n%2c|%2c|%2c\n%2c|%2c|%2c\n",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8]);
 
-    for (c = 0; c < 9; c++)
+    for (c = 0; c < 9 && !winner (); c++)
         input ();
 
     winner ();
@@ -36,7 +36,7 @@ void grid(int i)
 
     system ("cls");
     printf("%2c|%2c|%2c\n%2c|%2c|%2c\n%2c|%2c|%2c\n",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8]);
-    winner();
+
 }
 void input()
 {
@@ -46,7 +46,7 @@ void input()
     grid (n-1);
 
 }
-void winner()
+int winner()
 {
     //if (c%2==0)
     // {
@@ -62,6 +62,7 @@ void winner()
 
     {
         printf("player 1 wins\n");
+        return 1;
     }
 
     //else if (c%2!=0)
@@ -77,11 +78,14 @@ void winner()
     {
 
         printf("player 2 wins\n");
+        return 1;
     }
-    else if (c==9)
+    else if (c==9) {
         printf("draw\n");
+        return 1;
+    }
 
-
+    return 0;
 
 }
 
